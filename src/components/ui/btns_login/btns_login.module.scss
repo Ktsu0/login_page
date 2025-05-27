@@ -1,0 +1,17 @@
+.Btns_login {
+    width: 20vw;
+    height: 5vh;
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 3vh;
+    color: white;
+    transition: all 2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: aliceblue;
+        color: black;
+    }
+}
