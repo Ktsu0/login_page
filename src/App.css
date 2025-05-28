@@ -1,25 +1,42 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-image: url(./assets/pixel.gif);
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: gifs 60s infinite ease-in-out;
 }
-.frame{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 30vw;
-  height: 70vh;
-  background-color: rgba(0, 0, 0, 0.329);
-}
-.box{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+@keyframes gifs {
+
+  0%,
+  100% {
+    background-image: url(./assets/pixel.gif);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  25% {
+    background-image: url(./assets/pixel2.gif);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  50% {
+    background-image: url(./assets/pixel3.gif);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  75% {
+    background-image: url(./assets/pixel4.gif);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }

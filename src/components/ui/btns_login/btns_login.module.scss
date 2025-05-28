@@ -7,11 +7,16 @@
     margin: 5px;
     font-size: 3vh;
     color: white;
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 
     &:hover {
         transform: scale(1.1);
         background-color: aliceblue;
-        color: black;
+        color: rgba(0, 0, 0, 0.377);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        
+
     }
 }

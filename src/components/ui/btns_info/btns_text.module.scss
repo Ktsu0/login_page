@@ -1,16 +1,17 @@
 .Btns_text {
-    width: auto;
-    height: auto;
+    width: 10vw;
+    height: 10vh;
     background: transparent;
     border: none;
     font-size: 1.8vh;
     color: aliceblue;
-    padding: 0.5vh 1vh;
+    padding: 1vh;
+    cursor: pointer;
 
     white-space: nowrap;
 
     &:hover {
         transform: scale(1.1);
-        color: rgb(147, 197, 240);
+        color: rgba(201, 132, 100, 0.541);
     }
 }
