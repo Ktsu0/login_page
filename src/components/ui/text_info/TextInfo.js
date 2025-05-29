@@ -13,7 +13,6 @@ function TextInfo() {
           <i class="fa-solid fa-hotdog"></i>
         </div>
       </div>
-      <div className={styles.frase}>Está sentindo esse cheirinho?</div>
     </div>
   );
 }
