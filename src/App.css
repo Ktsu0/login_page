@@ -8,6 +8,12 @@
   flex-direction: column;
   animation: gifs 60s infinite ease-in-out;
 }
+header{
+  width: 100vw;
+  height: 5vh;
+  color: aliceblue;
+  font-size: 2vh;
+}
 
 @keyframes gifs {
 

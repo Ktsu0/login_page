@@ -5,14 +5,15 @@
 }
 
 .Inputs {
+  box-sizing: border-box;
   width: 100%;
   height: 5vh;
-  background-color: rgba(0, 0, 0, 0.363);
+  background-color: rgba(77, 77, 77, 0.363);
   border: none;
-  border-bottom: solid 2.5px rgb(6, 0, 58);
+  border-bottom: solid 2.5px rgba(238, 236, 255, 0.685);
   border-radius: 5px;
 
-  padding-left: 40px;
+  padding-left: 4vh;
   font-size: 1rem;
   color: aliceblue;
 
@@ -20,6 +21,17 @@
     outline: none;
     background-color: rgba(0, 0, 0, 0.486);
   }
+}
+.inputError {
+  border-color: red;
+  margin: 0;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -1.5vh;
+  margin-bottom: 1.5vh; 
 }
 
 .inputWrapper i:not(.eyeIcon) {
@@ -42,7 +54,7 @@
 .eyeIcon {
   position: absolute;
   top: 50%;
-  right: -3vh;
+  right: 1vh;
   transform: translateY(-50%);
   color: aliceblue;
   cursor: pointer;

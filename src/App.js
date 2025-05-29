@@ -1,12 +1,20 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginPages from './pages/loginPage/LoginPage';
+import HomePage from './pages/home/home_page';
 
 function App() {
   return (
     <div className="App">
+      <header>
+        <nav>
+          {/* <Link to={'/home'}>HOME</Link> */}
+          <Link to={'/'}>LOGIN</Link>
+        </nav>
+      </header>
       <Routes>
-        <Route path='/' element={<LoginPages/>}/>
+        <Route path='/' element={<LoginPages />} />
+        <Route path='/home' element={<HomePage />} />
       </Routes>
     </div>
   );
@@ -14,10 +22,3 @@ function App() {
 
 export default App;
 
-// {<header>
-//     <nav>
-//       <link to={'/home'}>HOME</link> 
-//       <link to={'/'}>LOGIN</link>
-//       </nav>
-//   </header>
-// }

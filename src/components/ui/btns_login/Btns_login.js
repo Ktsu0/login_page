@@ -1,9 +1,9 @@
 import styles from "./btns_login.module.scss"
 
-function Btns_login({text}) {
+function Btns_login({text, onClick}) {
 
     return <>
-        <button className={styles.Btns_login}>{text}</button>
+        <button className={styles.Btns_login} onClick={onClick}>{text}</button>
     </>
 }
 
