@@ -14,7 +14,8 @@ function LoginPages() {
     const navigate = useNavigate();
 
     const typLogin = () => {
-    if (!emailError && !senhaError && email && senha === "654321") {
+    if (!emailError && !senhaError && email === "teste@gmail.com" && senha === "654321") {
+        alert("Login realizado com sucesso.");
         navigate("/home");
     } else {
         alert("Senha ou E-mail incorretos.");
@@ -30,8 +31,7 @@ function LoginPages() {
         const value = e.target.value;
         setEmail(value);
 
-        // if (!value.includes("@") || !value.includes(".com")) {
-        if (!value.includes("test@gmail.com")){
+        if (!value.includes("@") || !value.includes(".com")) {
             setEmailError("E-mail inválido");
         } else {
             setEmailError("");
