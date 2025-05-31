@@ -15,7 +15,27 @@ body {
   justify-content: center;
   align-items: center;
 }
+.home{
+  width: 35vw;
+  background: linear-gradient(500deg, #020929b0 0%, #07071dbd 53%, #000000d0 85%);
+  border-radius: 10px;
+  animation: rgb 100s ease-in-out infinite; 
+}
+.game{
+  color: aliceblue;
+  letter-spacing: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
 
+  &:hover{
+  transform: scale(1.5);
+  letter-spacing: 10px;
+  color: transparent;
+  -webkit-text-stroke: 1px aliceblue;
+  }
+}
 .container {
   margin: 1rem 0;
   display: grid;
@@ -23,6 +43,13 @@ body {
   grid-template-columns: repeat(var(--numX), var(--grid-size));
   grid-auto-rows: var(--grid-size);
   gap: var(--grid-gap); /* melhor usar 'gap' que é padrão */
+}
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #226559;
+  margin: 1rem 0;
 }
 
 .blok {
@@ -32,34 +59,59 @@ body {
     opacity: 0.8;
   }
 }
+.score {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  transition: color 0.4s ease;
+}
+
+.scoreLow {
+  color: #ffffff; 
+}
+
+.scoreMedium {
+  color: #88cc88; 
+}
+
+.scoreHigh {
+  color: #44aa44; 
+}
+
+.scoreFinal {
+  color: #0b9; 
+}
 
 .toggle-on {
-  background-color: white;
-  animation: flare-on 0.5s ease-out 0s forwards;
+  animation: flare-on 0.3s ease-out;
 }
 
 .toggle-off {
-  animation: flare-off 0.5s ease-out 0s forwards;
+  animation: flare-off 0.3s ease-out;
   background-color: var(--end-color);
 }
 
-.score {
-  margin: 1.1em;
-  text-align: center;
-  font-family: Major Mono Display, monospace;
-  font-size: 1.8rem;
-  font-weight: 100;
-  color: #555;
-}
-
 @keyframes flare-on {
-  from {background-color: #a57;}
-  to {background-color: #0b9;}
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes flare-off {
-  from {background-color: #a57;}
-  to {background-color: var(--end-color);}
+  from {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 440px) {
