@@ -1,7 +1,5 @@
-/* home_page.module.scss */
-
 :root {
-  --numX: 1; // JS vai atualizar esse valor
+  --numX: 1;
   --grid-size: 50px;
   --grid-gap: 3px;
   --end-color: #d4e6e8;
@@ -42,7 +40,7 @@ body {
   justify-content: center;
   grid-template-columns: repeat(var(--numX), var(--grid-size));
   grid-auto-rows: var(--grid-size);
-  gap: var(--grid-gap); /* melhor usar 'gap' que é padrão */
+  gap: var(--grid-gap);
 }
 .message {
   text-align: center;

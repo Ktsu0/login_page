@@ -5,7 +5,6 @@ const numX = 12;
 const numY = 12;
 document.documentElement.style.setProperty("--numX", numX);
 
-// Paleta de 3 cores harmônicas
 const colorPalette = ["#226559", "#266B47"];
 
 const Blok = ({ onClick, blokClass, colorIndex }) => {
