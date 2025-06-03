@@ -8,7 +8,7 @@
   box-sizing: border-box;
   width: 100%;
   height: 5vh;
-  background-color: rgba(77, 77, 77, 0.363);
+  background-color: rgba(43, 40, 40, 0.363);
   border: none;
   border-bottom: solid 2.5px rgba(238, 236, 255, 0.685);
   border-radius: 5px;
@@ -19,7 +19,7 @@
 
   &:focus {
     outline: none;
-    background-color: rgba(0, 0, 0, 0.486);
+    background-color: rgba(0, 0, 0, 0.363);
   }
 }
 .inputError {

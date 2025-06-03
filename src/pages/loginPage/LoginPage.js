@@ -10,17 +10,17 @@ import { useNavigate } from "react-router-dom";
 
 
 function LoginPages() {
-    
+
     const navigate = useNavigate();
 
     const typLogin = () => {
-    if (!emailError && !senhaError && email === "teste@gmail.com" && senha === "654321") {
-        alert("Login realizado com sucesso.");
-        navigate("/home");
-    } else {
-        alert("Senha ou E-mail incorretos.");
-    }
-};
+        if (!emailError && !senhaError && email === "teste@gmail.com" && senha === "654321") {
+            alert("Login realizado com sucesso!");
+            navigate("/home");
+        } else {
+            alert("⚠️ Senha ou E-mail incorretos!");
+        }
+    };
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -50,35 +50,38 @@ function LoginPages() {
     };
 
     return (
-        <div className={styles.frame}>
-            <Text_info />
-            
-            <Inputs
-                type="text"
-                value={email}
-                onChange={EmailChange}
-                error={emailError}
-            />
-            
-            <Inputs
-                type="password"
-                value={senha}
-                onChange={SenhaChange}
-                error={senhaError}
-            />
+        <div className={styles.Body}>
+            <div className={styles.frame}>
+                <Text_info />
 
-            <BtnsText text="Esqueceu sua Senha?" />
-            <Btns_login text="ENTRAR" onClick={typLogin} />
+                <Inputs
+                    type="text"
+                    value={email}
+                    onChange={EmailChange}
+                    error={emailError}
+                />
 
-            <div className={styles.text_ou}>OU</div>
-            <div className='icons'>
-                <IconsLogin type="google" />
-                <IconsLogin type="apple" />
-                <IconsLogin type="windows" />
+                <Inputs
+                    type="password"
+                    value={senha}
+                    onChange={SenhaChange}
+                    error={senhaError}
+                />
+
+                <BtnsText text="Esqueceu sua Senha?" />
+                <Btns_login text="ENTRAR" onClick={typLogin} />
+
+                <div className={styles.text_ou}>OU</div>
+                <div className='icons'>
+                    <IconsLogin type="google" />
+                    <IconsLogin type="apple" />
+                    <IconsLogin type="windows" />
+                </div>
+
+                <Last_text />
             </div>
-
-            <Last_text />
         </div>
+
     );
 }
 

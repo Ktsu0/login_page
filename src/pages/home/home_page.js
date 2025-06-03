@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./home_page.module.scss";
+import { FixedSizeGrid } from "react-window"
 
 const numX = 12;
 const numY = 12;
@@ -81,7 +82,37 @@ const HomePage = () => {
 
   const progressMessage = getProgressMessage(scoreNum);
 
-  return (
+  const cartoes = Array.from({ length: 500 }, (_, i) => ({
+    id: i + 1,
+    nome: `Cartão ${i + 1}`,
+    img: <img src="https://img.freepik.com/fotos-premium/um-lobo-que-tem-um-fundo-preto-com-um-contorno-branco_905829-12805.jpg" alt="" />
+  }))
+
+  const columnCount = 3
+  const rowHeight = 200
+  const columnWidth = 280
+
+  const rowCount = Math.ceil(cartoes.length / columnCount);
+  const alturaVisivel = rowHeight * 2;
+
+  const Cell = ({ columnIndex, rowIndex, style }) => {
+    const index = rowIndex * columnCount + columnIndex;
+    const cartao = cartoes[index];
+
+    if (!cartao) return null;
+
+    return (
+      <div style={{ ...style, padding: '10px', boxSizing: 'border-box' }}>
+        <div className={styles.Card}>
+          <h4>{cartao.nome}</h4>
+          <p>ID: {cartao.id}</p>
+          <div className={styles.img}>{cartao.img}</div>
+        </div>
+      </div>
+    );
+  };
+
+  return <>
     <div className={styles.home}>
       <div>
         <h1 className={styles.game}> GRID STRIKE</h1>
@@ -111,7 +142,19 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-  );
+    <div className={styles.cartaoContainer}>
+      <FixedSizeGrid
+        columnCount={columnCount}
+        columnWidth={columnWidth}
+        height={alturaVisivel} 
+        rowCount={rowCount}
+        rowHeight={rowHeight}
+        width={columnWidth * columnCount + 20}
+      >
+        {Cell}
+      </FixedSizeGrid>
+    </div>
+  </>
 }
 
 export default HomePage

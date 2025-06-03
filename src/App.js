@@ -9,7 +9,7 @@ function App() {
       <header>
         <nav>
           {/* <Link to={'/home'}>HOME</Link> */}
-          <Link to={'/'}>LOGIN</Link>
+          <Link to={'/'} className='link'>🚪</Link>
         </nav>
       </header>
       <Routes>
