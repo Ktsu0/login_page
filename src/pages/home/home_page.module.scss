@@ -5,53 +5,11 @@
   --end-color: #d4e6e8;
 }
 
-body {
-  margin-top: 30vh;
+.body {
   width: 100%;
-  height: 150vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-   --x: 100px;
-  --z1: #fceded;
-  --z2: #cdcbcc;
-  --z3: #999999;
-  width: 100%;
-  height: 100%;
-  --_g: 0 110deg, #0000 0;
-  background: conic-gradient(
-      at calc(250% / 5) calc(100% / 3),
-      var(--z3) var(--_g)
-    ),
-    conic-gradient(
-      from -110deg at calc(50% / 3) calc(100% / 3),
-      var(--z2) var(--_g)
-    ),
-    conic-gradient(
-      from 110deg at calc(100% / 3) calc(250% / 3),
-      var(--z1) var(--_g)
-    ),
-    conic-gradient(
-      from 110deg at calc(200% / 3) calc(250% / 3),
-      var(--z1) var(--_g)
-    ),
-    conic-gradient(
-      from -180deg at calc(100% / 3) 50%,
-      var(--z2) 60deg,
-      var(--z1) var(--_g)
-    ),
-    conic-gradient(
-      from 60deg at calc(200% / 3) 50%,
-      var(--z1) 60deg,
-      var(--z3) var(--_g)
-    ),
-    conic-gradient(
-      from -60deg at 50% calc(100% / 3),
-      var(--z1) 120deg,
-      var(--z2) 0 240deg,
-      var(--z3) 0
-    );
-  background-size: calc(var(--x) var(--x));
+  flex-direction: column;
 }
 
 .home {
@@ -180,6 +138,10 @@ body {
 }
 
 .Card {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
   height: 100%;
   width: 100%;
   padding: 10px;
@@ -191,12 +153,17 @@ body {
   transition: transform 0.2s ease;
 }
 
-
+.icons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+}
 .Card:hover {
   transform: scale(1.03);
 }
 .img{
-  width: 20%;
-  height: 20%;
-  background-size: cover;
+  width: 70%;
+  height: 40%;
 }
