@@ -1,169 +1,54 @@
+/* ===== VARIÁVEIS GLOBAIS CSS ===== */
 :root {
+  /* Número de colunas na grade */
   --numX: 1;
+  /* Tamanho de cada célula da grade */
   --grid-size: 50px;
+  /* Espaçamento entre as células */
   --grid-gap: 3px;
-  --end-color: #d4e6e8;
+  /* Cor final usada em animações ou estado final */
+  --end-color: aliceblue;
+  /*Cor Game*/
+  --gren: #88cc88;
+  --gren2:#44aa44;
+  --gren3:#0b9;
+  /*Background Black */
+  --black: black;
+  /*White Ghost */
+  --Withe_ghost:rgba(240, 248, 255, 0.521) ;
 }
 
+/* ===== ESTILO GERAL ===== */
 .body {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  /* Alinha tudo verticalmente */
 }
 
-.home {
-  width: 35vw;
-  background: linear-gradient(500deg, #020929b0 0%, #07071dbd 53%, #000000d0 85%);
-  border-radius: 10px;
-  animation: rgb 100s ease-in-out infinite;
-}
+/* ===== RESPONSIVIDADE ===== */
 
-.game {
-  color: aliceblue;
-  letter-spacing: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 1s ease-in-out;
-
-  &:hover {
-    transform: scale(1.5);
-    letter-spacing: 10px;
-    color: transparent;
-    -webkit-text-stroke: 1px aliceblue;
-  }
-}
-
-.container {
-  margin: 1rem 0;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(var(--numX), var(--grid-size));
-  grid-auto-rows: var(--grid-size);
-  gap: var(--grid-gap);
-}
-
-.message {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #226559;
-  margin: 1rem 0;
-}
-
-.blok {
-  border-radius: 50%;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.score {
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin: 1rem 0;
-  transition: color 0.4s ease;
-}
-
-.scoreLow {
-  color: #ffffff;
-}
-
-.scoreMedium {
-  color: #88cc88;
-}
-
-.scoreHigh {
-  color: #44aa44;
-}
-
-.scoreFinal {
-  color: #0b9;
-}
-
-.toggle-on {
-  animation: flare-on 0.3s ease-out;
-}
-
-.toggle-off {
-  animation: flare-off 0.3s ease-out;
-  background-color: var(--end-color);
-}
-
-@keyframes flare-on {
-  from {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes flare-off {
-  from {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-}
-
-@media (max-width: 440px) {
+/* Telas até 800px */
+@media (max-width: 800px) {
   :root {
-    --grid-size: calc((95vw / var(--numX)) - var(--grid-gap));
+    --grid-size: 40px;
+    --grid-gap: 2.5px;
+  }
+
+  .body {
+    padding: 1rem;
   }
 }
 
-.cartaoContainer {
-  margin: 2rem auto;
-  max-width: 100%;
-  max-height: none;
-  height: auto;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.329);
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-  align-items: center;
-}
+/* Telas até 480px */
+@media (max-width: 480px) {
+  :root {
+    --grid-size: 30px;
+    --grid-gap: 2px;
+  }
 
-.Card {
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #280155;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  color: aliceblue;
-  transition: transform 0.2s ease;
-}
-
-.icons{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content:space-around;
-  align-items: center;
-}
-.Card:hover {
-  transform: scale(1.03);
-}
-.img{
-  width: 70%;
-  height: 40%;
+  .body {
+    padding: 0.5rem;
+  }
 }

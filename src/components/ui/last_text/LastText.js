@@ -1,5 +1,5 @@
 import style from './last_text.module.scss'
-import BtnsText from './../btns_info/Btns_texts';
+import BtnsText from '../../../pages/loginPage/login/buttons/btns_info/Btns_texts';
 
 function Last_text() {
     return <>

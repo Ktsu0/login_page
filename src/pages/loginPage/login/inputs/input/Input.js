@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "./inputs.module.scss";
+import React, { useState} from 'react';
+import styles from "./input.module.scss";
 
-function Inputs({ type, value, onChange, error }) {
+function Input({ type, value, onChange, error }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const iconMap = {
@@ -38,4 +38,4 @@ function Inputs({ type, value, onChange, error }) {
     );
 }
 
-export default Inputs;
+export default Input;

@@ -1,0 +1,171 @@
+/* Caixa principal da home com fundo degradê e animação */
+.home {
+  width: 35vw;
+  background: linear-gradient(500deg, #020929b0 0%, #07071dbd 53%, #000000d0 85%);
+  border-radius: 10px;
+  animation: rgb 100s ease-in-out infinite;
+  /* Animação contínua */
+}
+
+/* Título do jogo com animação ao passar o mouse */
+.game {
+  color: var(--end-color);
+  letter-spacing: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.5);
+    /* Aumenta o tamanho */
+    letter-spacing: 10px;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--end-color);
+    /* Contorno no texto */
+  }
+}
+
+/* Grade onde o jogo acontece */
+.container {
+  margin: 1rem 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(var(--numX), var(--grid-size));
+  /* Número dinâmico de colunas */
+  grid-auto-rows: var(--grid-size);
+  /* Altura fixa das linhas */
+  gap: var(--grid-gap);
+  /* Espaço entre blocos */
+}
+
+/* Mensagens exibidas ao jogador */
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--gren2);
+  margin: 1rem 0;
+}
+
+/* Blocos clicáveis do jogo */
+.blok {
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+    /* Efeito visual ao passar o mouse */
+  }
+}
+
+/* Estilo do placar */
+.score {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  transition: color 0.4s ease;
+}
+
+/* Cores do placar com base no desempenho */
+.scoreLow {
+  color: var(--end-color);
+}
+
+.scoreMedium {
+  color: var(--gren);
+}
+
+.scoreHigh {
+  color: var(--gren2);
+}
+
+.scoreFinal {
+  color: var(--gren3);
+}
+
+/* Animações para ativar/desativar elementos */
+.toggle-on {
+  animation: flare-on 0.3s ease-out;
+}
+
+.toggle-off {
+  animation: flare-off 0.3s ease-out;
+  background-color: var(--end-color);
+}
+
+/* Animação: surgir (efeito flare) */
+@keyframes flare-on {
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animação: sumir (efeito flare reverso) */
+@keyframes flare-off {
+  from {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Para telas até 800px */
+@media (max-width: 800px) {
+  :root {
+    --grid-size: calc((90vw / var(--numX)) - var(--grid-gap));
+  }
+
+  .home {
+    width: 80vw;
+  }
+
+  .game {
+    font-size: 1.5rem;
+  }
+
+  .score {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    font-size: 1.2rem;
+  }
+}
+
+/* Para telas até 480px */
+@media (max-width: 480px) {
+  :root {
+    --grid-size: calc((95vw / var(--numX)) - var(--grid-gap));
+  }
+
+  .home {
+    width: 95vw;
+  }
+
+  .game {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+  }
+
+  .score {
+    font-size: 1.2rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}
