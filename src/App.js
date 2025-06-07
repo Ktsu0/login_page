@@ -4,6 +4,7 @@ import LoginPages from './pages/loginPage/LoginPage';
 import HomePage from './pages/home/home_page';
 import { textHeader } from './js/text';
 import { useEffect } from 'react';
+import EditCards from './pages/edit_card/EditCards ';
 
 function App() {
   useEffect(() =>
@@ -24,11 +25,16 @@ function App() {
             <Link to={'/home'} className='link'>HOME</Link>
             <div className='line_1'></div>
           </div>
+          <div className='btn'>
+            <Link to={'/EditCards'} className='link'>CARDS</Link>
+            <div className='line_1'></div>
+          </div>
         </nav>
       </header>
       <Routes>
         <Route path='/' element={<LoginPages />} />
         <Route path='/home' element={<HomePage />} />
+        <Route path='/EditCards' element={<EditCards />} />
       </Routes>
     </div>
   );

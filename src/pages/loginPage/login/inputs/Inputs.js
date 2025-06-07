@@ -6,6 +6,7 @@ function Inputs({ email, senha, emailError, senhaError, EmailChange, SenhaChange
         <div>
             <Input
                 type="text"
+                inputType="text"
                 value={email}
                 onChange={EmailChange}
                 error={emailError}
@@ -13,6 +14,7 @@ function Inputs({ email, senha, emailError, senhaError, EmailChange, SenhaChange
 
             <Input
                 type="password"
+                inputType="password"
                 value={senha}
                 onChange={SenhaChange}
                 error={senhaError}

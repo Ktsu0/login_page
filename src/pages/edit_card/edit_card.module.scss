@@ -1,0 +1,33 @@
+.frameBox {
+  width: 91vw;
+  height: 84.66vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame{
+  width: 30vw;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
+  gap: 4vh;
+}
+.textEdit {
+  color: var(--end-color);
+  letter-spacing: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.5);
+    letter-spacing: 10px;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--end-color);
+  }
+}

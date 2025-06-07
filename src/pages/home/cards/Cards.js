@@ -5,7 +5,7 @@ import { FixedSizeGrid } from "react-window";
 function Cards() {
     // --- ESTADO DOS CARTÕES ---
     const [cartoes, setCartoes] = React.useState(
-        Array.from({ length: 1 }, (_, i) => ({
+        Array.from({ length: 10 }, (_, i) => ({
             uid: crypto.randomUUID(),
             id: i + 1,
             nome: `Cartão ${i + 1}`,

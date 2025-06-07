@@ -1,15 +1,21 @@
-import React, { useState} from 'react';
+import { useState } from "react";
 import styles from "./input.module.scss";
 
-function Input({ type, value, onChange, error }) {
+function Input({ type, inputType = "text", value, onChange, error }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const iconMap = {
         text: "fa-solid fa-envelope",
         password: "fa-solid fa-lock",
+        img: "fa-solid fa-image",
+        card: "fa-solid fa-address-card",
+        name: "fa-solid fa-user"
     };
 
     const iconClass = iconMap[type] || "fas fa-pen";
+
+    const isPasswordInput = inputType === "password";
+    const currentInputType = isPasswordInput && showPassword ? "text" : inputType;
 
     const toggleShowPassword = () => {
         setShowPassword(prev => !prev);
@@ -19,14 +25,14 @@ function Input({ type, value, onChange, error }) {
         <>
             <div className={styles.inputWrapper}>
                 <input
-                    type={type === "password" && showPassword ? "text" : type}
+                    type={currentInputType}
                     className={`${styles.Inputs} ${error ? styles.inputError : ""}`}
                     value={value}
                     onChange={onChange}
                 />
-                <i className={iconClass}></i>
+                <i className={`${iconClass} ${styles.inputIcon}`}></i>
 
-                {type === "password" && (
+                {isPasswordInput && (
                     <i
                         className={`fa-solid ${showPassword ? "fa-eye-slash" : "fa-eye"} ${styles.eyeIcon}`}
                         onClick={toggleShowPassword}
