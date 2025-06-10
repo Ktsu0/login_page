@@ -62,7 +62,6 @@ function FrameLogin() {
 
             <div className={styles.text_ou}>OU</div>
             <IconsL />
-
             <Last_text />
         </div>
     </>

@@ -4,7 +4,7 @@ import LoginPages from './pages/loginPage/LoginPage';
 import HomePage from './pages/home/home_page';
 import { textHeader } from './js/text';
 import { useEffect } from 'react';
-import EditCards from './pages/edit_card/EditCards ';
+import EditCards from './pages/editCard/EditCards ';
 
 function App() {
   useEffect(() =>

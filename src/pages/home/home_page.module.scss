@@ -52,3 +52,187 @@
     padding: 0.5rem;
   }
 }
+
+
+/* Container do cartão (ex: para perfil ou informações extras) */
+.cartaoContainer {
+  margin: 2rem auto;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.329);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 0.5vh;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.438) transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover{
+    scrollbar-color: rgba(0, 0, 0, 0.39) transparent;
+  }
+}
+/* Estilo do cartão individual */
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #0109557a;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: var(--end-color);
+  transition: transform 0.2s ease;
+}
+
+/* Container dos ícones dentro do cartão */
+.icons {
+  margin-bottom: 0.2vh;
+  height: 1vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Botões de deletar e editar dentro do cartão */
+.delete,
+.edit {
+  cursor: pointer;
+  width: 3.5vh;
+  height: 3.5vh;
+  font-size: 2vh;
+  border-radius: 50%;
+  color: var(--end-color);
+  background-color: transparent;
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.623);
+
+  &:hover {
+    transform: scale(1.1);
+    color: var();
+    /* Tom mais claro ao passar o mouse */
+  }
+}
+
+/* Efeito de zoom ao passar o mouse no cartão */
+.Card:hover {
+  transform: scale(1.03);
+}
+
+/* Config img do card (tamanho e proporção da imagem dentro do cartão) */
+.img {
+  width: 70%;
+  height: 40%;
+}
+
+/* Card para adicionar novo cartão */
+.addCard {
+  cursor: pointer;
+  border: 2px dashed var(--end-color);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  color: var(--black);
+  background-color: var(--Withe_ghost);
+  border-radius: 8px;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: #e0e0e0bb;
+  }
+
+  &:hover i {
+    animation: giro 1.5s forwards;
+  }
+}
+
+@keyframes giro {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.06);
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Telas até 800px */
+@media (max-width: 800px) {
+  .cartaoContainer {
+    width: 90vw;
+    padding-right: 1vw;
+  }
+
+  .Card {
+    padding: 8px;
+    font-size: 1rem;
+  }
+
+  .icons {
+    height: auto;
+    gap: 1rem;
+  }
+
+  .delete,
+  .edit {
+    width: 3vh;
+    height: 3vh;
+    font-size: 1.8vh;
+  }
+
+  .img {
+    width: 80%;
+    height: auto;
+  }
+
+  .addCard {
+    font-size: 50px;
+  }
+}
+
+/* Telas até 480px */
+@media (max-width: 480px) {
+  .cartaoContainer {
+    width: 95vw;
+    margin: 1rem auto;
+  }
+
+  .Card {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
+  .icons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .delete,
+  .edit {
+    width: 2.5vh;
+    height: 2.5vh;
+    font-size: 1.5vh;
+  }
+
+  .img {
+    width: 90%;
+    height: auto;
+  }
+
+  .addCard {
+    font-size: 40px;
+  }
+}

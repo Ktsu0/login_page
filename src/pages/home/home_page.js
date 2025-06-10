@@ -3,9 +3,9 @@ import Game from "./game/Game";
 import Cards from "./cards/Cards";
 
 
-
 // --- COMPONENTE PRINCIPAL ---
 const HomePage = () => {
+  
 
  
   // --- JSX FINAL ---

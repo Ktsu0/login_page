@@ -1,92 +1,94 @@
 import React from "react";
-import styles from "./cards.module.scss"
+import styles from "./cards.module.scss";
 import { FixedSizeGrid } from "react-window";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Cards() {
-    // --- ESTADO DOS CARTÕES ---
-    const [cartoes, setCartoes] = React.useState(
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // Função para criar os cartões iniciais
+    const createCard = () =>
         Array.from({ length: 10 }, (_, i) => ({
             uid: crypto.randomUUID(),
             id: i + 1,
             nome: `Cartão ${i + 1}`,
-            icon1: <i className="fa-solid fa-pen-to-square"></i>,
-            icon2: <i className="fa-solid fa-trash"></i>,
-            imgSrc:
-                "https://img.freepik.com/fotos-premium/um-lobo-que-tem-um-fundo-preto-com-um-contorno-branco_905829-12805.jpg",
-        }))
-    );
+            imgSrc: "https://media1.giphy.com/media/OkoScrMcY324r1j1HZ/source.gif",
+        }));
 
-    // --- FUNÇÕES DOS CARTÕES ---
-    const editarCartao = (uid) => {
-        setCartoes((prev) =>
-            prev.map((cartao) => {
-                if (cartao.uid === uid) {
-                    const novoNome = prompt("Digite o novo nome do cartão:", cartao.nome);
-                    const novoIdStr = prompt("Digite o novo ID do cartão:", cartao.id);
-                    const novaImg = prompt("Cole a nova URL da imagem:", cartao.imgSrc);
+    // Estado inicial: carrega do localStorage ou cria cartões
+    const [cartoes, setCartoes] = React.useState(() => {
+        const localData = localStorage.getItem("cartoes");
+        return localData ? JSON.parse(localData) : createCard();
+    });
 
-                    const novoId = parseInt(novoIdStr, 10);
-                    if (!isNaN(novoId) && novoNome && novaImg) {
-                        return {
-                            ...cartao,
-                            id: novoId,
-                            nome: novoNome,
-                            imgSrc: novaImg,
-                        };
-                    }
+    // Atualiza localStorage sempre que os cartões mudam
+    React.useEffect(() => {
+        localStorage.setItem("cartoes", JSON.stringify(cartoes));
+    }, [cartoes]);
+
+    // Recebe cartão editado ou novo via location.state e atualiza o estado
+    React.useEffect(() => {
+        if (location.state && location.state.card) {
+            const novoCartao = location.state.card;
+
+            setCartoes((prevCartoes) => {
+                const existe = prevCartoes.some((c) => c.uid === novoCartao.uid);
+
+                if (existe) {
+                    // Atualiza cartão existente
+                    return prevCartoes.map((c) =>
+                        c.uid === novoCartao.uid ? novoCartao : c
+                    );
+                } else {
+                    // Adiciona novo cartão, garante id único incremental
+                    const maxId = prevCartoes.reduce(
+                        (max, c) => Math.max(max, Number(c.id)),
+                        0
+                    );
+                    return [...prevCartoes, { ...novoCartao, id: novoCartao.id || maxId + 1 }];
                 }
-                return cartao;
-            })
-        );
+            });
+
+            // Limpa o estado para evitar repetição da ação
+            navigate(location.pathname, { replace: true, state: null });
+        }
+    }, [location, navigate]);
+
+    // Função para editar cartão (navega para tela de edição)
+    const editarCartao = (uid) => {
+        const cartao = cartoes.find((c) => c.uid === uid);
+        if (cartao) {
+            const { uid, id, nome, imgSrc } = cartao;
+            navigate("/EditCards", { state: { uid, id, nome, imgSrc } });
+        }
     };
 
+    // Função para remover cartão do estado
     const removerCartao = (uid) => {
         setCartoes((prev) => prev.filter((cartao) => cartao.uid !== uid));
     };
 
-    // --- CONFIGURAÇÕES DO GRID DE CARTÕES ---
+    // Configurações do grid de cartões
     const columnCount = 4;
     const rowHeight = 300;
     const columnWidth = 280;
     const rowCount = Math.ceil((cartoes.length + 1) / columnCount); // +1 para o card de "+"
     const alturaVisivel = rowHeight * 2;
 
-    // --- COMponente para renderizar cada célula do grid de cartões ---
+    // Componente para renderizar cada célula do grid de cartões
     const Cell = ({ columnIndex, rowIndex, style }) => {
         const index = rowIndex * columnCount + columnIndex;
 
         // Card de "+" para criar novo cartão
         if (index === cartoes.length) {
             return (
-                <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
-                    <div
-                        className={styles.addCard}
-                        onClick={() => {
-                            const novoNome = prompt("Digite o nome do novo cartão:");
-                            if (!novoNome) return;
-
-                            const novoIdStr = prompt("Digite o ID do novo cartão:");
-                            const novoId = parseInt(novoIdStr, 10);
-                            if (isNaN(novoId)) {
-                                alert("ID inválido.");
-                                return;
-                            }
-
-                            const novaImg = prompt("Cole a URL da imagem do novo cartão:");
-                            if (!novaImg) return;
-
-                            const novoCartao = {
-                                uid: crypto.randomUUID(),
-                                id: novoId,
-                                nome: novoNome,
-                                icon1: <i className="fa-solid fa-pen-to-square"></i>,
-                                icon2: <i className="fa-solid fa-trash"></i>,
-                                imgSrc: novaImg,
-                            };
-                            setCartoes((prev) => [...prev, novoCartao]);
-                        }}
-                    >
-                        <i class="fa-solid fa-plus"></i>
+                <div
+                    style={{ ...style, padding: "10px", boxSizing: "border-box" }}
+                    key="add-card"
+                >
+                    <div className={styles.addCard} onClick={() => navigate("/EditCards")}>
+                        <i className="fa-solid fa-plus"></i>
                     </div>
                 </div>
             );
@@ -96,17 +98,23 @@ function Cards() {
         if (!cartao) return null;
 
         return (
-            <div key={cartao.uid} style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
+            <div
+                key={cartao.uid}
+                style={{ ...style, padding: "10px", boxSizing: "border-box" }}
+            >
                 <div className={styles.Card}>
                     <img className={styles.img} src={cartao.imgSrc} alt={cartao.nome} />
                     <h4>{cartao.nome}</h4>
                     <p>ID: {cartao.id}</p>
                     <div className={styles.icons}>
                         <button className={styles.edit} onClick={() => editarCartao(cartao.uid)}>
-                            {cartao.icon1}
+                            <i className="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button className={styles.delete} onClick={() => removerCartao(cartao.uid)}>
-                            {cartao.icon2}
+                        <button
+                            className={styles.delete}
+                            onClick={() => removerCartao(cartao.uid)}
+                        >
+                            <i className="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>
@@ -114,7 +122,7 @@ function Cards() {
         );
     };
 
-    return <>
+    return (
         <div className={styles.cartaoContainer}>
             <FixedSizeGrid
                 columnCount={columnCount}
@@ -127,7 +135,7 @@ function Cards() {
                 {Cell}
             </FixedSizeGrid>
         </div>
-    </>
+    );
 }
 
-export default Cards
+export default Cards;
