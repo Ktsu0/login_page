@@ -1,4 +1,4 @@
-import IconsLogin from './icons_login/IconsLogin';
+import IconsLogin from '../../ui/icons_login/IconsLogin';
 
 function IconsL() {
     

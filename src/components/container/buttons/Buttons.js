@@ -1,5 +1,5 @@
-import BtnsText from './btns_info/Btns_texts'
-import Btns_login from './btns_login/Btns_login'
+import BtnsText from '../../ui/btns_info/Btns_texts'
+import Btns_login from '../../ui/btns_login/Btns_login'
 
 
 function Buttons({ typLogin }) {

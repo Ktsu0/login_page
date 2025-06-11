@@ -1,6 +1,6 @@
-import Input from "../loginPage/login/inputs/input/Input";
+import Input from "../../components/ui/input/Input";
 import styles from "./edit_card.module.scss";
-import Btns_login from "../loginPage/login/buttons/btns_login/Btns_login";
+import Btns_login from "../../components/ui/btns_login/Btns_login";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ function EditCards() {
 
     const dadosEditados = {
       uid: uid || crypto.randomUUID(),
-      id: idCartao,  // agora vem do input editável
+      id: idCartao,
       nome: nomeCartao,
       imgSrc: imagem,
     };
@@ -48,7 +48,7 @@ function EditCards() {
             type="card"
             inputType="text"
             value={idCartao}
-            onChange={(e) => setIdCartao(e.target.value)} // permite editar o ID
+            onChange={(e) => setIdCartao(e.target.value)} 
           />
           <Btns_login text="SALVAR" onClick={salvarAlteracoes} />
         </div>

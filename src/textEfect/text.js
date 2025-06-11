@@ -1,3 +1,6 @@
+import "./text.css"
+
+
 export function textHeader() {
   const title = document.getElementById("programming-title");
   if (!title) {

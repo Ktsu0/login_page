@@ -1,4 +1,4 @@
-import Input from './input/Input';
+import Input from './../../ui/input/Input'
 
 function Inputs({ email, senha, emailError, senhaError, EmailChange, SenhaChange }) {
 

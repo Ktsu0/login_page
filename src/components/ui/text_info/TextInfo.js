@@ -4,7 +4,7 @@ function TextInfo() {
   return (
     <div className={styles.TextInfo}>
       <div className={styles.textLogo}>
-        <div>Login</div>
+        <div>LOGIN</div>
         <div className={styles['food-icons']}>
           <i className="fa-solid fa-burger"></i>
           <i className="fa-solid fa-pizza-slice"></i>

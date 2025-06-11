@@ -1,5 +1,5 @@
 import styles from "./login_page.module.scss"
-import FrameLogin from "./login/FrameLogin";
+import FrameLogin from "../../components/ui/frameLogin/FrameLogin";
 
 
 function LoginPages() {

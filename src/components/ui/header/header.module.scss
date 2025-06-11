@@ -1,0 +1,93 @@
+header {
+    width: 100%;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.158);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    margin: 0;
+}
+
+.btns {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.btn {
+    cursor: pointer;
+    width: 25%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.link {
+    font-size: 4.6vh;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    z-index: 20;
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+.line_1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.1vh;
+    background-color: black;
+    border-radius: 0.2vh;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.btn:hover {
+    box-shadow: 6px 7px 5px 0px rgba(0, 0, 0, 0.623);
+}
+
+.btn:hover .line_1 {
+    top: 1;
+    height: 90%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.151);
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+
+.text {
+    width: 50%;
+    height: 100%;
+}
+
+.programming_title {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: var(--white);
+    font-size: 4vh;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.1;
+    gap: 0.2vh;
+}
