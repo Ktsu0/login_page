@@ -1,6 +1,7 @@
 import styles from "./game.module.scss"
 import Grid from "../../ui/game/Grid";
 import { useGameLogic } from "../../../hooks/usaGameLogic";
+import AnimatedWord from "./../animationText/AnimatedWord";
 
 function Game() {
     const {
@@ -18,7 +19,7 @@ function Game() {
             <div>
                 <h1 className={styles.game}>GRID STRIKE</h1>
                 <div className={`${styles.score} ${styles[scoreLevel]}`}>
-                    Score: {score}/{numTotal}
+                    <AnimatedWord word="Score" />: {score}/{numTotal}
                 </div>
                 {progressMessage && <div className={styles.message}>{progressMessage}</div>}
                 <Grid

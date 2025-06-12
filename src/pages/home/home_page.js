@@ -3,10 +3,8 @@ import Game from "../../components/container/game/Game";
 import CardsContainer from "../../components/container/cards/CardsContainer";
 
 
-// --- COMPONENTE PRINCIPAL ---
 const HomePage = () => {
   
-  // --- JSX FINAL ---
   return (
     <div className={styles.body}>
       <Game />

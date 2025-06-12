@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const numX = 12;
 const numY = 12;
-const colorPalette = ["#226559", "#266B47"];
+const colorPalette = ["#228B22", "#046307"];
 
 document.documentElement.style.setProperty("--numX", numX);
 

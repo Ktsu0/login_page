@@ -25,9 +25,10 @@
   transition: all 1s ease-in-out;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     letter-spacing: 10px;
     color: transparent;
     -webkit-text-stroke: 1px var(--end-color);
+    text-shadow: -1px 5px 3px #000000;
   }
 }

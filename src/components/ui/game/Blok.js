@@ -2,7 +2,7 @@
 
 import styles from "./../../container/game/game.module.scss";
 
-const colorPalette = ["#226559", "#266B47"];
+const colorPalette = ["#228B22", "#046307"];
 
 const Blok = ({ onClick, blokClass, colorIndex }) => {
     const backgroundColor = colorIndex !== null ? colorPalette[colorIndex] : undefined;

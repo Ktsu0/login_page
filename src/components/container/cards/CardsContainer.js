@@ -8,14 +8,17 @@ const CardsContainer = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Hook personalizado para manipular os cartões com persistência
   const {
     cartoes,
     editarOuAdicionar,
     removerCartao
   } = useCards(createCards());
 
+  // Recupera cartão enviado via estado da navegação (ao editar ou adicionar)
   const card = location.state?.card;
 
+  // Se houver cartão no estado, adiciona ou edita e limpa o estado de navegação
   useEffect(() => {
     if (card) {
       editarOuAdicionar(card);
@@ -23,17 +26,19 @@ const CardsContainer = () => {
     }
   }, [card, navigate, editarOuAdicionar]);
 
+  // Redireciona para a tela de edição passando o cartão como estado
   const handleEditar = (uid) => {
     const card = cartoes.find((c) => c.uid === uid);
     if (card) navigate("/EditCards", { state: card });
   };
 
+  // Renderiza o grid de cartões com funções de ação
   return (
     <CardsGrid
       cartoes={cartoes}
       onEditar={handleEditar}
       onRemover={removerCartao}
-      onAdd={() => navigate("/EditCards")}
+      onAdicionar={() => navigate("/EditCards")}
     />
   );
 };

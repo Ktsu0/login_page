@@ -1,0 +1,22 @@
+.word {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 4px;
+}
+
+.letter {
+  color: var( --end-color);
+  -webkit-text-stroke: 0 solid transparent;
+  transition: color 0.3s ease-in-out, -webkit-text-stroke-width 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  font-size: 2rem;
+  user-select: none;
+  text-shadow: none;
+}
+
+.active {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var( --end-color);
+  text-shadow: -1px 5px 3px #000000b9;
+}

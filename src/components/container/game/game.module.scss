@@ -17,11 +17,26 @@
   transition: all 1s ease-in-out;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     letter-spacing: 10px;
     color: transparent;
     -webkit-text-stroke: 1px var(--end-color);
+    text-shadow: -1px 5px 3px #000000;
+    animation: piscar 3s ease-in-out infinite;
   }
+}
+
+@keyframes piscar {
+
+  0%,
+  100% {
+    color: transparent;
+  }
+
+  50% {
+    color: var(--end-color);
+  }
+
 }
 
 /* Grade onde o jogo acontece */
@@ -53,14 +68,15 @@
 
   &:hover {
     opacity: 0.8;
-    /* Efeito visual ao passar o mouse */
   }
 }
 
 /* Estilo do placar */
 .score {
+  display: flex;
+  justify-content: center;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 500;
   margin: 1rem 0;
   transition: color 0.4s ease;
@@ -85,11 +101,30 @@
 
 /* Animações para ativar/desativar elementos */
 .toggle-on {
-  animation: flare-on 0.3s ease-out;
+  animation: flare-on 0.3s ease-in-out;
+  animation: myAnim 1s ease-in-out 0s 1s normal forwards;
+
+  @keyframes myAnim {
+	0% {
+		opacity: 0.8;
+		transform: scale(0.2);
+	}
+
+	80% {
+		opacity: 0;
+		transform: scale(1.2);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
 }
 
+
 .toggle-off {
-  animation: flare-off 0.3s ease-out;
+  animation: flare-off 0.3s ease-in-out;
   background-color: var(--end-color);
 }
 
