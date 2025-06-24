@@ -1,6 +1,7 @@
 // useLogin.js
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./../context/AuthContext";
 
 export function useLogin() {
     const [email, setEmail] = useState("");
@@ -24,16 +25,19 @@ export function useLogin() {
         const value = e.target.value;
         setSenha(value);
 
-        if (value !== "654321") {
+        if (value !== "123456") {
             setSenhaError("Senha inválida");
         } else {
             setSenhaError("");
         }
     };
 
+    const { login } = useAuth()
+
     const typLogin = () => {
-        if (!emailError && !senhaError && email === "teste@gmail.com" && senha === "654321") {
+        if (!emailError && !senhaError && email === "teste@gmail.com" && senha === "123456") {
             alert("Login realizado com sucesso!");
+            login()
             navigate("/home");
         } else {
             alert("⚠️ Senha ou E-mail incorretos!");

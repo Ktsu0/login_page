@@ -3,6 +3,7 @@ import { textHeader } from './../../container/textEfect/text';
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from "../../../theme/themeContext";
+import { useAuth } from "../../../context/AuthContext";
 
 function Header() {
     const location = useLocation();
@@ -20,6 +21,8 @@ function Header() {
     // const hideButtonsRoutes = ["/EditCards", "/outraRota"];
     // const isEditPage = hideButtonsRoutes.includes(location.pathname);
 
+    const {logout} = useAuth()
+    
     return (
         <header>
             <div className={styles.text}>
@@ -30,7 +33,7 @@ function Header() {
             {!isEditPage && (
                 <nav className={styles.btns}>
                     <div className={styles.btn}>
-                        <Link to={'/'} className={styles.link}>LOGIN</Link>
+                        <Link to={'/'} className={styles.link} onClick={logout}>LOGIN</Link>
                         <div className={styles.line_1}></div>
                     </div>
                     <div className={styles.btn}>
