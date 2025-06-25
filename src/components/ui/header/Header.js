@@ -1,18 +1,12 @@
 import styles from "./header.module.scss";
-import { textHeader } from './../../container/textEfect/text';
-import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from "../../../theme/themeContext";
+import Logo from "../../../pages/portifolio/header/Logo";
 import { useAuth } from "../../../context/AuthContext";
 
 function Header() {
     const location = useLocation();
     const { toggleTheme } = useTheme()
-
-    // Aplica o efeito de texto ao carregar
-    useEffect(() => {
-        textHeader();
-    }, []);
 
     // Verifica se a rota atual é "/EditCards"
     const isEditPage = location.pathname === "/EditCards";
@@ -22,23 +16,26 @@ function Header() {
     // const isEditPage = hideButtonsRoutes.includes(location.pathname);
 
     const {logout} = useAuth()
-    
     return (
         <header>
-            <div className={styles.text}>
-                <h1 id="programming-title" className={styles.programming_title}></h1>
-            </div>
-
+                <Logo />
             {/* Botões só aparecem se NÃO estiver na página de edição */}
             {!isEditPage && (
                 <nav className={styles.btns}>
                     <div className={styles.btn}>
-                        <Link to={'/'} className={styles.link} onClick={logout}>LOGIN</Link>
+                        <Link to={'/'} className={styles.link}><i class="fa-solid fa-id-badge"></i> PORTIFOLIO</Link>
                         <div className={styles.line_1}></div>
                     </div>
                     <div className={styles.btn}>
-                        <Link to={'/home'} className={styles.link}>HOME</Link>
+                        <Link to={'/login'} className={styles.link}><i class="fa-solid fa-user"></i> LOGIN</Link>
                         <div className={styles.line_1}></div>
+                    </div>
+                    <div className={styles.btn}>
+                        <Link to={'/home'} className={styles.link}><i class="fa-solid fa-house"></i> HOME</Link>
+                        <div className={styles.line_1}></div>
+                    </div>
+                    <div className={styles.logout}>
+                        <Link className={styles.link} onClick={logout}><i class="fa-solid fa-right-from-bracket"></i></Link>
                     </div>
                 </nav>
             )}

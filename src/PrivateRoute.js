@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
 
     // Se está logado, renderiza os filhos normalmente
     // Se NÃO está logado, redireciona para a página "/"
-    return taLogado ? children : <Navigate to="/" />
+    return taLogado ? children : <Navigate to="/login" />
 }
 
 // Exporta o componente para ser usado nas rotas

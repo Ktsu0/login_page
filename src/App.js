@@ -7,6 +7,7 @@ import Header from './components/ui/header/Header';
 import { ThemeProvider } from './theme/themeContext';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './PrivateRoute';
+import Portifolio from './pages/portifolio/Portifolio';
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
         <ThemeProvider>
           <Header />
           <Routes>
-            <Route path='/' element={<LoginPages />} />
+            <Route path='/' element={<Portifolio />} />
+            <Route path='/login' element={<LoginPages />} />
             <Route path='/home' element={
               <PrivateRoute>
                 <HomePage />
