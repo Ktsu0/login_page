@@ -10,11 +10,11 @@ export function footerIcons() {
   }
 
   function openWhatsapp() {
-    window.open('https://i.gifer.com/origin/6b/6bd435618b6c7e8c3faa24527442fe89_w200.webp', '_blank');
+    window.open('https://media.tenor.com/ZSrJrkIg5gcAAAAM/horse-cavalo.gif', '_blank');
   }
 
   function openInstagram() {
-    window.open('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmpkb2Y3aXFnYnQ4dWQ4OTE3d3MxamFrNmV0Z2ZjZmtzcTE2Zms4NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/WXB88TeARFVvi/200w.webp', '_blank');
+    window.open('https://media.tenor.com/_cGcYYBVOr8AAAAM/vegeta-dance-fortnite-vegeta.gif', '_blank');
   }
 
   github.addEventListener('click', openGithub);
