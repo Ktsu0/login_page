@@ -3,8 +3,9 @@ import Game from "../../components/container/game/Game";
 import CardsContainer from "../../components/container/cards/CardsContainer";
 
 
+
 const HomePage = () => {
-  
+
   return (
     <div className={styles.body}>
       <Game />
