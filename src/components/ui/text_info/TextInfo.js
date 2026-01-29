@@ -1,11 +1,11 @@
 import styles from "./text_info.module.scss";
 
-function TextInfo() {
+function TextInfo({ isRegister }) {
   return (
     <div className={styles.TextInfo}>
       <div className={styles.textLogo}>
-        <div>LOGIN</div>
-        <div className={styles['food-icons']}>
+        <div>{isRegister ? "CADASTRO" : "LOGIN"}</div>
+        <div className={styles["food-icons"]}>
           <i className="fa-solid fa-burger"></i>
           <i className="fa-solid fa-pizza-slice"></i>
           <i className="fa-solid fa-utensils"></i>

@@ -1,14 +1,14 @@
-import IconsLogin from '../../ui/icons_login/IconsLogin';
+import IconsLogin from "../../ui/icons_login/IconsLogin";
 
 function IconsL() {
-    
-    return <>
-        <div className='icons'>
-            <IconsLogin type="google" />
-            <IconsLogin type="apple" />
-            <IconsLogin type="windows" />
-        </div>
+  return (
+    <>
+      <div className="icons">
+        <IconsLogin type="google" />
+        <IconsLogin type="github" />
+      </div>
     </>
+  );
 }
 
-export default IconsL
+export default IconsL;
